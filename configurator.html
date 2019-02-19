@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Extra CSS -->
+    <link rel="stylesheet" href="configurator.css" />
+
+   <title>Speaker configurator</title>
+    
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+  
+  <div id="conf-title" class="mt-2 mb-5">
+  <h1 class="text-center">{{ message }}</h1>
+  </div>
+
+	<div class="container">
+	
+	<div class="row">
+	
+	<div id="cabin" style="width: 50%;" class="mx-auto text-center">
+		<div>
+		<figure class="figure mx-auto text-center">
+			<img src="speaker.jpg" class="figure-img img-fluid rounded mx-auto text-center" alt="...">
+			<figcaption class="figure-caption">PE-S3W</figcaption>
+		</figure>
+		</div>
+		<div>
+			<a href="besteld.php?"><button type="button" class="btn btn-warning btn-lg mx-auto">Bestel</button></a>
+		</div>
+	</div>
+	
+	<div id="choices" style="width: 50%;">
+	
+<div class="accordion" id="accordionExample">
+
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Color
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+	  <div class="card-body" id="color">
+		  <div class="form-check form-check-inline" v-for="color in colors">
+			<input class="form-check-input" type="radio" name="inlineRadioOptions" v-bind:id="color.text" v-bind:value="color.text">
+			<label class="form-check-label" v-bind:for="color.text">{{ color.text }}</label>
+		  </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Structure
+        </button>
+      </h2>
+    </div>
+	
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+	  <div class="card-body" id="structure">
+		  <div class="form-check form-check-inline" v-for="structure in structures">
+			<input class="form-check-input" type="radio" name="inlineRadioOptions" v-bind:id="structure.text" v-bind:value="structure.text">
+			<label class="form-check-label" v-bind:for="structure.text">{{ structure.text }}</label>
+		  </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Tweeter
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body" id="tweeter">
+		<ol>
+		  <li v-for="tweeter in tweeters">
+			{{ tweeter.text }} - € {{ tweeter.price }}
+		  </li>
+		</ol>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Midtoner
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+      <div class="card-body" id="midtoner">
+		<ol>
+		  <li v-for="midtoner in midtoners">
+			{{ midtoner.text }} - € {{ midtoner.price }}
+		  </li>
+		</ol>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Woofer
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+      <div class="card-body" id="woofer">
+		<ol>
+		  <li v-for="woofer in woofers">
+			{{ woofer.text }} - € {{ woofer.price }}
+		  </li>
+		</ol>
+      </div>
+    </div>
+  </div>
+  
+ 
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          Filter
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+	
+	  <div class="card-body" id="filter">
+		  <div class="form-check form-check-inline" v-for="filter in filters">
+			<input class="form-check-input" type="radio" name="inlineRadioOptions" v-bind:id="filter.text" v-bind:value="filter.text">
+			<label class="form-check-label" v-bind:for="filter.text">{{ filter.text }} - € {{ filter.price }}</label>
+		  </div>
+      </div>
+
+	  </div>
+  </div>
+ 
+  <div class="card">
+    <div class="card-header" id="headingSeven">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          Terminal
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+	  <div class="card-body" id="terminal">
+		  <div class="form-check form-check-inline" v-for="terminal in terminals">
+			<input class="form-check-input" type="radio" name="inlineRadioOptions" v-bind:id="terminal.text" v-bind:value="terminal.text">
+			<label class="form-check-label" v-bind:for="terminal.text">{{ terminal.text }} - € {{ terminal.price }}</label>
+		  </div>
+      </div>
+    </div>
+  </div>
+
+  
+</div>	
+
+
+	<!-- prijs -->
+
+  <div class="card p-3 mt-3">	
+<!--       $subtotal = $row["subtotal"];
+      $sub = (float)filter_var( $subtotal, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION );
+      $shippingcosts = number_format(6.95, 2, ',', '.');
+      $t = $sub + 6.95;
+      $totalincl = number_format($t, 2, ',', '.'); // + $shippingcosts;
+      $totalexcl = 100 * ($t / 121); // 3.547,93
+      $btw = 21 * ($totalexcl / 100); // 745,07
+ -->
+      <div style="width: 100%;">Subtotaal (set van 2)<span style="float: right;">€ 699,-</span></div>
+      <div style="width: 100%;">Verzendkosten <span style="float: right;">€ 50,-</span></div>
+      <hr>
+      <div style="width: 100%;">Totaal excl. BTW <span style="float: right;">€ 749,-</span></div>
+      <div style="width: 100%;">BTW 21%<span style="float: right;">€ 157,29</span></div>
+      <hr>
+      <div style="width: 100%; font-weight: bold;">Totaal incl. BTW <span style="float: right;">€ 906,29</span></div>
+
+  </div>
+	
+  
+  </div>	<!-- choices -->
+  
+  </div>	<!-- row -->
+  
+  </div>	<!-- container -->
+  
+  
+  
+<!-- development version, includes helpful console warnings -->
+<!-- script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script -->    
+<script src="vue.js"></script>
+<script src="main.js"></script>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  
+  </body>
+</html>
